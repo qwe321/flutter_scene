@@ -102,7 +102,7 @@ static bool ProcessMeshPrimitive(const tinygltf::Model& gltf,
       const auto& view = gltf.bufferViews[accessor.bufferView];
 
       const auto& buffer = gltf.buffers[view.buffer];
-      const unsigned char* source_start = &buffer.data[view.byteOffset];
+      const unsigned char* source_start = &buffer.data[view.byteOffset + accessor.byteOffset];
 
       VerticesBuilder::ComponentType type;
       switch (accessor.componentType) {
